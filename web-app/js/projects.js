@@ -27,7 +27,7 @@ function getProjectHTML(projectName) {
         'tower-of-hanoi': getTowerOfHanoiHTML(),
         'number-converter': getNumberConverterHTML(),
         'typing-speed-tester': getTypingSpeedTesterHTML(),
-        'snake-game': getsnakeGameHTML(),
+        'snake-game': getSnakeGameHTML(),
         'password-forge': getPasswordForgeHTML(),
         'tic-tac-toe': getTicTacToeHTML(),
         'math-quiz': getMathQuizHTML(),

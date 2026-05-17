@@ -1,4 +1,4 @@
-function getsnakeGameHTML() {
+function getSnakeGameHTML() {
     return `
         <div class="project-content">
             <h2>🐍 Classic Snake Game</h2>
@@ -217,17 +217,16 @@ function initSnakeGame() {
         direction = { x: 1, y: 0 }; // Start moving right
     });
 
-    document.getElementById('restartSnakeBtn').addEventListener('click', () => {
-        location.reload();
-    });
-
-    document.getElementById('overlayRestartBtn').addEventListener('click', () => {
+    const resetGame = () => {
         document.getElementById('game-over-overlay').classList.add('hidden');
         direction = { x: 0, y: 0 };
         snakeArr = [{ x: 13, y: 10 }];
         score = 0;
         document.getElementById('score').innerHTML = score;
-    });
+    };
+
+    document.getElementById('restartSnakeBtn').addEventListener('click', resetGame);
+    document.getElementById('overlayRestartBtn').addEventListener('click', resetGame);
 
     window.addEventListener('keydown', e => {
         switch (e.key) {
