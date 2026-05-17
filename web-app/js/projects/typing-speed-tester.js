@@ -11,7 +11,8 @@ function getTypingSpeedTesterHTML() {
             <div 
                 id="typingSentence"
                 style="
-                    background: #111827;
+                    background: var(--surface-color);
+                    color: var(--text-color);
                     padding: 15px;
                     border-radius: 10px;
                     margin-bottom: 20px;
@@ -32,6 +33,9 @@ function getTypingSpeedTesterHTML() {
                     border-radius: 10px;
                     font-size: 16px;
                     margin-bottom: 20px;
+                    background: var(--surface-color);
+                    color: var(--text-color);
+                    border: 1px solid var(--border-color);
                 "
             ></textarea>
 
