@@ -155,8 +155,23 @@ def generate_food():
     food.color(current_food["color"])
     food.shapesize(current_food["size"])
 
-    x = random.randint(-18, 18) * 15
-    y = random.randint(-18, 18) * 15
+    while True:
+        x = random.randint(-18, 18) * 15
+        y = random.randint(-18, 18) * 15
+        
+        # Check collision with head
+        if head.distance(x, y) < 15:
+            continue
+            
+        # Check collision with body parts
+        overlapping = False
+        for part in parts:
+            if part.distance(x, y) < 15:
+                overlapping = True
+                break
+        
+        if not overlapping:
+            break
 
     food.goto(x, y)
 
