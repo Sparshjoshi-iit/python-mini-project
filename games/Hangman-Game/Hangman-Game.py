@@ -1,12 +1,28 @@
 import random
 
 print("=" * 50)
-print("WELCOME TO HANGMAN GAME")
+print("   WELCOME TO HANGMAN GAME")
 print("=" * 50)
 
-words = ['python', 'programming', 'computer', 'algorithm', 'keyboard', 
-         'monitor', 'software', 'hardware', 'database', 'network',
-         'internet', 'developer', 'variable', 'function', 'application']
+# Expanded word list categorized by difficulty (length)
+word_categories = {
+    "1": ["python", "java", "code", "data", "web", "logic", "task", "link", "host", "user"], # Easy: 3-5 letters
+    "2": ["program", "network", "monitor", "storage", "laptop", "desktop", "server", "browser"], # Medium: 6-7 letters
+    "3": ["algorithm", "programming", "software", "hardware", "database", "developer", "variable", "function"] # Hard: 8+ letters
+}
+
+print("\n🎯 Select Difficulty:")
+print("1️⃣ Easy (3-5 letters)")
+print("2️⃣ Medium (6-7 letters)")
+print("3️⃣ Hard (8+ letters)")
+
+while True:
+    choice = input("\nEnter choice (1-3): ").strip()
+    if choice in word_categories:
+        words = word_categories[choice]
+        difficulty_name = {"1": "Easy", "2": "Medium", "3": "Hard"}[choice]
+        break
+    print("❌ Invalid choice! Please select 1, 2, or 3.")
 
 word = random.choice(words)
 word_length = len(word)
@@ -17,7 +33,8 @@ max_attempts = 6
 attempts = 0
 won = False
 
-print(f"\nThe word has {word_length} letters.")
+print(f"\nSelected Difficulty: {difficulty_name}")
+print(f"The word has {word_length} letters.")
 print(f"You have {max_attempts} attempts to guess the word.\n")
 
 while attempts < max_attempts and not won:
